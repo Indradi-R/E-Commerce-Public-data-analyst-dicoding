@@ -1,39 +1,44 @@
-# Dicoding Submission: "Learning Data Analytics with Python"
+# Analisis Data E-Commerce Publik
 
-## Data Analytics Project
+Proyek ini menganalisis dataset e-commerce publik dan menyajikan ringkasan melalui notebook serta dashboard Streamlit. Dashboard menyediakan filter rentang tanggal dan visualisasi pesanan, nilai transaksi, produk, ulasan, status pesanan, serta sebaran pelanggan.
 
-## Description
+## Pratinjau dashboard
 
-This project focuses on analyzing data from an E-Commerce Public Dataset. The ultimate goal is to derive valuable insights and information from the analyzed data to aid business decision-making.
+![Tangkapan layar dashboard analisis e-commerce](dashboard/screencapture-localhost-8501-2024-12-31-15_29_19.png)
 
-## Project Structure
+## Alur data
 
-- **/data**: Contains the dataset files in .csv format used for the project.
-- **/dashboard**: Includes the main.py file used for creating the data analysis dashboard.
-- **/Data_Analysis_Project.ipynb**: A Jupyter Notebook file for performing data analysis.
-- **/requirements.txt**: required Python packages.
+```mermaid
+flowchart TD
+    A[CSV dataset di data/] --> B[Notebook analisis]
+    A --> C[File gabungan dashboard]
+    C --> D[dashboard.py dan func.py]
+    D --> E[Filter tanggal dan visualisasi Streamlit]
+```
 
-## Installation
+## Menjalankan dashboard
 
-1. Clone this repository to your local machine using the following command:
+Dashboard mengharapkan file `merge_data.csv` dan `geolocation_dataset.csv` berada di folder `dashboard/`. Kedua file tersebut ada di repository.
 
-   ```shell
-   git clone https://github.com/Indradi-R/project-data-analyst-dicoding.git
-   ```
+```bash
+python -m venv .venv
+```
 
-2. Ensure you have an appropriate Python environment set up and install the required libraries by running the following command:
+Aktifkan virtual environment, lalu jalankan dari root repository:
 
-   ```shell
-   pip install streamlit
-   pip install -r requirements.txt
-   ```
+```bash
+pip install -r requirements.txt
+cd dashboard
+streamlit run dashboard.py
+```
 
-## Usage
+## Isi repository
 
-1. Navigate to the project directory (local):
+- `Data_Analysis_Project.ipynb`: proses analisis dan visualisasi.
+- `data/`: file CSV dataset publik.
+- `dashboard/dashboard.py`: antarmuka dashboard.
+- `dashboard/func.py`: fungsi agregasi data dan peta.
+- `dashboard/merge_data.csv` dan `dashboard/geolocation_dataset.csv`: input yang dibaca dashboard.
+- `requirements.txt`: dependency Python.
 
-   ```shell
-   cd project-data-analyst-dicoding/dashboard/
-   streamlit run dashboard.py
-   ```
-   [Project Data Analytics](https://project-data-analyst-dicoding-abtappvb68ouixbl3rdykgv.streamlit.app/)
+Notebook membahas proses pengumpulan, pemeriksaan, pembersihan, dan eksplorasi data. Dashboard merangkum tren harian, pengeluaran, kategori produk, rating ulasan, status pesanan, dan geolokasi.
